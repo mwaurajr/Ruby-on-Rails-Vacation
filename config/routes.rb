@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
-  # resources :reviews
-  # resources :visits, only: [:index, :show, :create]
-  # resources :houses, only: [:index, :show]
-  # resources :users, only: [:index, :show, :create]
+  resources :reviews
+  resources :visits, only: [:index, :show, :create]
+  resources :houses, only: [:index, :show]
+  resources :users, only: [:index, :show, :create]
 
   # get '/authorized_user', to: 'users#show'
 
