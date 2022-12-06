@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   # get '/reviews/by_user/:id', to: 'reviews#user_reviews' 
 
 
-  # post '/login', to: 'sessions#login'
-  # delete '/logout', to: 'sessions#logout'
+  post '/login', to: 'sessions#login'
+  delete '/logout', to: 'sessions#logout'
 
   
   # # Routing logic: fallback requests for React Router.
