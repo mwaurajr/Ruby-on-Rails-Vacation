@@ -10,7 +10,7 @@ function MyVisits({ user, houses }) {
         fetch(`/visits/by_user/${user.id}`)
         .then(r => r.json())
         .then(data => setVisits(data))
-    },[])
+    },[user.id])
     
 
     const renderVisits = visits.map(visit => <VisitCard visit={visit} key={visit.id} houses={houses} user={user} />)

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './LoginForm.css';
 
 function LoginForm({setUser, setIsAuthenticated}) {
-  const history = useHistory()
+  const navigate = useNavigate()
   const [error, setError] = useState([])
   console.log('error: ', error);
   const [loginData, setLoginData] = useState({
@@ -33,7 +33,7 @@ function LoginForm({setUser, setIsAuthenticated}) {
         .then(user => {
           setUser(user)
           setIsAuthenticated(true)
-        }).then(() => history.push('/availablehouses'))
+        }).then(() => navigate('/availablehouses'))
       } else{
         r.json()
         .then(json => setError(json.error))

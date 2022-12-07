@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReviewCard from "../ReviewCard/ReviewCard";
-import Grid from "@mui/material/Grid";
+import { DataGrid } from '@material-ui/data-grid';
 import './MyReviews.css';
 function MyReviews({ user, houses }) {
   const [reviews, setReviews] = useState([])
@@ -55,9 +55,9 @@ function MyReviews({ user, houses }) {
           <h1>MY REVIEWS</h1>
         </div>
         <div className="reviews-container">
-          <Grid container style={{ justifyContent: "space-evenly" }}>
+          <DataGrid container style={{ justifyContent: "space-evenly" }}>
             {renderReviews}
-          </Grid>
+          </DataGrid>
         </div>
       </div>
   );

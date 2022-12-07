@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Route, Switch, Redirect } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  Navigate } from 'react-router-dom';
 import NavBar from '../Components/NavBar/NavBar.js';
 import AvailableHouses from '../Components/AvailableHouses/AvailableHouses.js';
 import UserProfile from '../Components/UserProfile/UserProfile.js';
@@ -53,32 +56,35 @@ function App() {
   if(!isAuthenticated) return <LoginSignUpPage setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
   return (
       <div className="app">
-        <Switch>
+        <Routes>
+          
           <Route exact path="/">
-            {isAuthenticated ? <Redirect to= "/availablehouses"/> : <LoginSignUpPage  setUser={setUser} setIsAuthenticated={setIsAuthenticated}/>}
+            {isAuthenticated ? <Navigate to= "/availablehouses"/> : <LoginSignUpPage  setUser={setUser} setIsAuthenticated={setIsAuthenticated}/>}
           </Route>
           <div>
             <NavBar setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
             <div className="body">
               <Route exact path="/availablehouses">
-                  {isAuthenticated ? <AvailableHouses houses={filterHouses()} setSelectedState={setSelectedState} selectedState={selectedState} /> : <Redirect to="/"/>}
+                  {isAuthenticated ? <AvailableHouses houses={filterHouses()} setSelectedState={setSelectedState} selectedState={selectedState} /> : <Navigate to="/"/>}
               </Route>
               <Route path="/userprofile">
-                {isAuthenticated ? <UserProfile user={user}/> : <Redirect to="/"/>}
+                {isAuthenticated ? <UserProfile user={user}/> : <Navigate to="/"/>}
               </Route>
               <Route path="/myvisits">
-                {isAuthenticated ? <MyVisits user={user} houses={houses}/> : <Redirect to="/"/>}
+                {isAuthenticated ? <MyVisits user={user} houses={houses}/> : <Navigate to="/"/>}
               </Route>
               <Route path="/myreviews">
-                {isAuthenticated ? <MyReviews user={user} reviews={reviews} setReviews={setReviews} houses={houses}/>  : <Redirect to="/"/>}
+                {isAuthenticated ? <MyReviews user={user} reviews={reviews} setReviews={setReviews} houses={houses}/>  : <Navigate to="/"/>}
               </Route>
               <Route path="/availablehouses/:id">
-                {isAuthenticated ? <HouseProfile user={user}/>  : <Redirect to="/"/>}
+                {isAuthenticated ? <HouseProfile user={user}/>  : <Navigate to="/"/>}
               </Route>
             </div>
           </div>
-        </Switch>
+        </Routes>
+        <script src="https://unpkg.com/@material-ui/core@latest/umd/material-ui.development.js" ></script>
       </div>
+      
   );
 }
 export default App;

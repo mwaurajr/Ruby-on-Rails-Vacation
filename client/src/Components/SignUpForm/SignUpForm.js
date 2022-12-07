@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './SignUpForm.css';
 import GenericAvatar from '../assets/GenericAvatar.png';
 
 function SignUpForm({setUser, setIsAuthenticated}) {
-  const history = useHistory()
+  const history = useNavigate()
   const [confirmPassword, setConfirmPassword] = useState('')
   const [errors, setErrors] = useState([])
   const [signupData, setSignupData] = useState({
@@ -41,7 +41,7 @@ function SignUpForm({setUser, setIsAuthenticated}) {
         .then(user => {
           setUser(user)
           setIsAuthenticated(true)
-          history.push('/availablehouses')
+          history('/availablehouses')
         })
       } else{
         r.json()
