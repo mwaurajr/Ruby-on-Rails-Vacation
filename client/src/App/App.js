@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import {
   Routes,
   Route,
-  Navigate } from 'react-router-dom';
+  
+  useNavigate } from 'react-router-dom';
 import NavBar from '../Components/NavBar/NavBar.js';
 import AvailableHouses from '../Components/AvailableHouses/AvailableHouses.js';
 import UserProfile from '../Components/UserProfile/UserProfile.js';
@@ -18,6 +19,7 @@ function App() {
   const [houses, setHouses] = useState([])
   const [reviews, setReviews] = useState([])
   const [selectedState, setSelectedState] = useState('All')
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch('/authorized_user')
@@ -28,11 +30,13 @@ function App() {
           setIsAuthenticated(true)
           setUser(user)
         })
-        .then(unlockHouses)
-        .then(unlockReviews)
       }
     })
   }, []);
+
+  
+
+
 
   const unlockHouses = () => {
     fetch('/houses')
@@ -41,9 +45,20 @@ function App() {
     }
   const unlockReviews = () => {
     fetch(`http://localhost:3000/reviews/${user.id}`)
+    // http://localhost:3000/reviews/by_user/
       .then((res) => res.json())
       .then((data) => setReviews(data))
   }
+
+
+//   useEffect(() => { 
+//   // if (user){
+//   //   unlockHouses()
+//   //   unlockReviews()
+//   }
+// }, [user])
+
+
 
   const filterHouses = () => {
     if(selectedState === "All"){
@@ -58,27 +73,27 @@ function App() {
       <div className="app">
         <Routes>
           
-          <Route exact path="/">
-            {isAuthenticated ? <Navigate to= "/availablehouses"/> : <LoginSignUpPage  setUser={setUser} setIsAuthenticated={setIsAuthenticated}/>}
-          </Route>
+          <Route exact path="/" element={<LoginSignUpPage  setUser={setUser} setIsAuthenticated={setIsAuthenticated}/>} />
+             
+         
           {/* <div> */}
-            <NavBar setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
+            {/* <NavBar setUser={setUser} setIsAuthenticated={setIsAuthenticated} /> */}
             {/* <div className="body"> */}
-              <Route exact path="/availablehouses">
-                  {isAuthenticated ? <AvailableHouses houses={filterHouses()} setSelectedState={setSelectedState} selectedState={selectedState} /> : <Navigate to="/"/>}
-              </Route>
-              <Route path="/userprofile">
-                {isAuthenticated ? <UserProfile user={user}/> : <Navigate to="/"/>}
-              </Route>
-              <Route path="/myvisits">
-                {isAuthenticated ? <MyVisits user={user} houses={houses}/> : <Navigate to="/"/>}
-              </Route>
-              <Route path="/myreviews">
-                {isAuthenticated ? <MyReviews user={user} reviews={reviews} setReviews={setReviews} houses={houses}/>  : <Navigate to="/"/>}
-              </Route>
-              <Route path="/availablehouses/:id">
-                {isAuthenticated ? <HouseProfile user={user}/>  : <Navigate to="/"/>}
-              </Route>
+              <Route exact path="/availablehouses" element={ <AvailableHouses houses={filterHouses()} setSelectedState={setSelectedState} selectedState={selectedState} /> } />
+                  
+              
+              <Route path="/userprofile" element={ <UserProfile user={user}/> } />
+                
+              
+              <Route path="/myvisits"element={ <MyVisits user={user} houses={houses}/> } />
+                
+              
+              <Route path="/myreviews"element= { <MyReviews user={user} reviews={reviews} setReviews={setReviews} houses={houses}/>  } />
+               
+              
+              <Route path="/availablehouses/:id"element=  { <HouseProfile user={user}/>  } />
+              
+              
             {/* </div> */}
           {/* </div> */}
         </Routes>
