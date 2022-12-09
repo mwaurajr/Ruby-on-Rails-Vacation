@@ -3,17 +3,7 @@ import HouseCard from '../HouseCard/HouseCard.js';
 import './AvailableHouses.css';
 
 function AvailableHouses({houses, setSelectedState, selectedState}) {
-    // const [selectedState, setSelectedState] = useState('All')
-    
-    // const filterHouses = () => {
-    //     if(selectedState === "All"){
-    //         return houses
-    //     } else {
-    //         return houses.filter(h => h.location.toLowerCase().includes(selectedState.toLowerCase()))
-    //     }
-    // }
-
-    // const test = filterHouses()
+  
 
     const renderHouses = houses.map(house => <HouseCard house={house} key={house.id} />)
     

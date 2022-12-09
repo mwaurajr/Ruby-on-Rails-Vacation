@@ -28,7 +28,7 @@ function LoginForm({setUser, setIsAuthenticated}) {
       body:JSON.stringify(loginData),
     })
     .then(r => {
-      if(r.ok){
+      if(r.ok){ 
         r.json()
         .then(user => {
           setUser(user)

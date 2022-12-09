@@ -61,9 +61,9 @@ function App() {
           <Route exact path="/">
             {isAuthenticated ? <Navigate to= "/availablehouses"/> : <LoginSignUpPage  setUser={setUser} setIsAuthenticated={setIsAuthenticated}/>}
           </Route>
-          <div>
+          {/* <div> */}
             <NavBar setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
-            <div className="body">
+            {/* <div className="body"> */}
               <Route exact path="/availablehouses">
                   {isAuthenticated ? <AvailableHouses houses={filterHouses()} setSelectedState={setSelectedState} selectedState={selectedState} /> : <Navigate to="/"/>}
               </Route>
@@ -79,8 +79,8 @@ function App() {
               <Route path="/availablehouses/:id">
                 {isAuthenticated ? <HouseProfile user={user}/>  : <Navigate to="/"/>}
               </Route>
-            </div>
-          </div>
+            {/* </div> */}
+          {/* </div> */}
         </Routes>
         <script src="https://unpkg.com/@material-ui/core@latest/umd/material-ui.development.js" ></script>
       </div>
