@@ -1,13 +1,15 @@
-<!-- # Project Template: React/Rails API
+# Project Template: React/Rails API
 
 ## Description
 
 This project is scaffolded so that you can build a React frontend and Rails
 backend together, and easily deploy them to Heroku.
 
+You can also use railway to deploy your application following this link: https://docs.google.com/document/d/1Tnx7zCV03h-RTkE4-gWxMZzFhZjVvj0HmN0zHCkCk3k/edit#
+
 ## Requirements
 
-- Ruby 2.7.4
+- Ruby 2.7.6
 - NodeJS (v16), and npm
 - Postgresql
 
@@ -135,13 +137,13 @@ ruby -v
 
 Make sure that the Ruby version you're running is listed in the [supported
 runtimes][] by Heroku. At the time of writing, supported versions are 2.6.8,
-2.7.4, or 3.0.2. Our recommendation is 2.7.4, but make sure to check the site
+2.7.6, or 3.0.2. Our recommendation is 2.7.6, but make sure to check the site
 for the latest supported versions.
 
 If it's not, you can use `rvm` to install a newer version of Ruby:
 
 ```sh
-rvm install 2.7.4 --default
+rvm install 2.7.6 --default
 ```
 
 You should also install the latest versions of `bundler` and `rails`:
@@ -323,4 +325,4 @@ For additional support, check out these guides on Heroku:
 
 [postgres downloads page]: https://postgresapp.com/downloads.html
 [heroku rails deploying guide]: https://devcenter.heroku.com/articles/getting-started-with-rails6
-[troubleshooting guide on heroku]: https://devcenter.heroku.com/articles/getting-started-with-rails6#troubleshooting -->
+[troubleshooting guide on heroku]: https://devcenter.heroku.com/articles/getting-started-with-rails6#troubleshooting
