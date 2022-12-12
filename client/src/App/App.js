@@ -19,7 +19,7 @@ function App() {
   const [houses, setHouses] = useState([])
   const [reviews, setReviews] = useState([])
   const [selectedState, setSelectedState] = useState('All')
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   useEffect(() => {
     fetch('https://ruby-vacations-production-400a.up.railway.app/authorized_user')
