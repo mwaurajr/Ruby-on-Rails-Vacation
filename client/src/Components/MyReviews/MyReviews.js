@@ -11,7 +11,7 @@ function MyReviews({ user, houses }) {
   const [starEditInput, setStarEditInput] = useState("");
 
   useEffect(() => {
-    fetch(`https://ruby-vacations-production-400a.up.railway.app/reviews/${user.id}`)
+    fetch(`/reviews/${user.id}`)
       .then((res) => res.json())
       .then((data) => setReviews(data))
   },[user.id])

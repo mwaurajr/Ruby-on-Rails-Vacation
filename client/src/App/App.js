@@ -22,13 +22,14 @@ function App() {
   // const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('https://ruby-vacations-production-400a.up.railway.app/authorized_user')
+    fetch('/authorized_user')
     .then(r => {
       if(r.ok){
         r.json()
         .then(user => {
           setIsAuthenticated(true)
           setUser(user)
+        
         })
       }
     })
@@ -39,12 +40,12 @@ function App() {
 
 
   const unlockHouses = () => {
-    fetch('https://ruby-vacations-production-400a.up.railway.app/houses')
+    fetch('/houses')
     .then(r => r.json())
     .then(data => setHouses(data))
     }
   const unlockReviews = () => {
-    fetch(`https://ruby-vacations-production-400a.up.railway.app/reviews/${user.id}`)
+    fetch(`http://localhost:3000/reviews/${user.id}}`)
     // http://localhost:3000/reviews/by_user/
       .then((res) => res.json())
       .then((data) => setReviews(data))
@@ -71,6 +72,8 @@ function App() {
   if(!isAuthenticated) return <LoginSignUpPage setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
   return (
       <div className="app">
+        <>
+        <NavBar setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
         <Routes>
           
           <Route exact path="/" element={<LoginSignUpPage  setUser={setUser} setIsAuthenticated={setIsAuthenticated}/>} />
@@ -98,6 +101,7 @@ function App() {
           {/* </div> */}
         </Routes>
         <script src="https://unpkg.com/@material-ui/core@latest/umd/material-ui.development.js" ></script>
+        </>
       </div>
       
   );

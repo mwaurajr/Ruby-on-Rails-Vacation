@@ -19,7 +19,7 @@ function LoginForm({setUser, setIsAuthenticated}) {
   function handleSubmit(e) {
     e.preventDefault();
     setError([])
-    fetch('https://ruby-vacations-production-400a.up.railway.app/login',{
+    fetch('/login',{
       method:'POST',
       headers:{
         'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ function LoginForm({setUser, setIsAuthenticated}) {
       body:JSON.stringify(loginData),
     })
     .then(r => {
-      if(r.ok){ 
+      if(r.ok){
         r.json()
         .then(user => {
           setUser(user)
