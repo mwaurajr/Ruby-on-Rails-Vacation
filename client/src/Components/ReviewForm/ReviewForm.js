@@ -26,7 +26,7 @@ function ReviewForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`/reviews`, configObjPOST)
+    fetch(`https://ruby-vacations-production-400a.up.railway.app/reviews`, configObjPOST)
       .then((res) => res.json())
       .then((data) => {
         setStarInput(" ");

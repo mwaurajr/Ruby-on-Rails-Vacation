@@ -22,7 +22,7 @@ function App() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('/authorized_user')
+    fetch('https://ruby-vacations-production-400a.up.railway.app/authorized_user')
     .then(r => {
       if(r.ok){
         r.json()
@@ -39,12 +39,12 @@ function App() {
 
 
   const unlockHouses = () => {
-    fetch('/houses')
+    fetch('https://ruby-vacations-production-400a.up.railway.app/houses')
     .then(r => r.json())
     .then(data => setHouses(data))
     }
   const unlockReviews = () => {
-    fetch(`http://localhost:3000/reviews/${user.id}`)
+    fetch(`https://ruby-vacations-production-400a.up.railway.app/reviews/${user.id}`)
     // http://localhost:3000/reviews/by_user/
       .then((res) => res.json())
       .then((data) => setReviews(data))

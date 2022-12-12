@@ -99,7 +99,7 @@ function HouseProfile({ user }) {
     let start = begining[3] + '-' + begining[1] + '-' + begining[2] 
     let end = finish[3] + '-' + finish[1] + '-' + finish[2] 
     const handleBooking = () => {
-        fetch('/visits',{
+        fetch('https://ruby-vacations-production-400a.up.railway.app/visits',{
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

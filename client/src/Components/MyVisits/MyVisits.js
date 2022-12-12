@@ -7,7 +7,7 @@ function MyVisits({ user, houses }) {
     const [visits, setVisits] = useState([])
 
     useEffect(() => {
-        fetch(`/visits/by_user/${user.id}`)
+        fetch(`https://ruby-vacations-production-400a.up.railway.app/visits/by_user/${user.id}`)
         .then(r => r.json())
         .then(data => setVisits(data))
     },[user.id])

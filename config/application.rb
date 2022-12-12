@@ -36,7 +36,7 @@ module ReactRailsApiProjectTemplate
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
-    #
+    config.hosts << "ruby-vacations-production-400a.up.railway.app"
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 

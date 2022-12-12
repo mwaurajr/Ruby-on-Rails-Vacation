@@ -19,7 +19,7 @@ function LoginForm({setUser, setIsAuthenticated}) {
   function handleSubmit(e) {
     e.preventDefault();
     setError([])
-    fetch('/login',{
+    fetch('https://ruby-vacations-production-400a.up.railway.app/login',{
       method:'POST',
       headers:{
         'Content-Type': 'application/json',

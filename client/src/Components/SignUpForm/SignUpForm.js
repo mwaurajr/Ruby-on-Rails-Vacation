@@ -41,7 +41,7 @@ function SignUpForm({setUser, setIsAuthenticated}) {
         .then(user => {
           setUser(user)
           setIsAuthenticated(true)
-          history('/availablehouses')
+          history('https://ruby-vacations-production-400a.up.railway.app/availablehouses')
         })
       } else{
         r.json()
