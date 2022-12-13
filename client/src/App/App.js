@@ -72,7 +72,7 @@ function App() {
   if(!isAuthenticated) return <LoginSignUpPage setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
   return (
       <div className="app">
-        <>
+      
         <NavBar setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
         <Routes>
           
@@ -101,7 +101,7 @@ function App() {
           {/* </div> */}
         </Routes>
         <script src="https://unpkg.com/@material-ui/core@latest/umd/material-ui.development.js" ></script>
-        </>
+        
       </div>
       
   );
